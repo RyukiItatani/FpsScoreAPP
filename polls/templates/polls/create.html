@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} 
+{% load static%}
+{% block head %}
+<link href="{% static '/css/login.css' %}" rel="stylesheet">
+{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+  <form method="POST" action="{% url 'polls:create_account' %}">
+    {% csrf_token %}
+    <h1>アカウント作成</h1>
+    <label>ユーザーID</label>
+    {{ form.username }} {{ form.username.errors }}
+    <label>パスワード</label>
+    {{ form.password1 }} {{ form.password1.errors }}
+    <label>パスワード(確認)</label>
+    {{ form.password2 }} {{ form.password2.errors }}
+    <button type="submit" class="btn btn-primary">登録</button>
+  </form>
+  <a href="{% url 'polls:login' %}">既存のアカウントでログイン</a>
+</div>
+{% endblock%}

@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block head %}
+<link href="{% static '/css/new.css' %}" rel="stylesheet">
+{% endblock %} 
+{% block title %}Index{% endblock %} 
+{% block content %}
+<div class="container">
+  <h1 class="pt-4">FPS記録画面</h1>
+  <div class="row">
+    <div class="col-xl-4">
+      <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary">送信</button>
+      </form>
+    </div>
+    <div class="col-xl-8">
+      <h4>アプリケーション説明</h4>
+      <p>
+        このアプリケーションはFPSの戦績を管理するものです。<br>
+        横のフォームでそのマッチでのキル数、デス数、スコア数を入力してください。<br>
+        下の表には今までに入力した記録が表示されます。<br>
+        表の下にはキル数、デス数、スコア数、kdを日付ごとの平均を表示するグラフが表示されます。
+      </p>
+      <div><a href="{% url 'polls:login' %}">ログイン画面へ戻る</a></div>
+    </div>
+  </div>
+
+  <p>{{ kill }}</p>
+  <p>{{ death }}</p>
+  <p>{{ score }}</p>
+  <div style="height: 500px; overflow: auto">
+    <table class="table table-bordered">
+      <tr>
+        {% for h in header %}
+        <th>{{h}}</th>
+        {% endfor %}
+      </tr>
+
+      {% for i in data %}
+      <tr>
+        <td>{{ i.user }}</td>
+        <td>{{ i.kill }}</td>
+        <td>{{ i.death }}</td>
+        <td>{{ i.score }}</td>
+        <td>{{ i.DateTime }}</td>
+        <td><button class="btn btn-outline-danger btn-sm"id="del_btn" data-pk="{{ i.id }}" data-url="{% url 'polls:td_del' td_id=i.id %}" onclick="del_click(this)">削除</button></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <!--モーダルウィンドウ-->
+  <div id="modal" class="modal">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <p>ID: <span id="del_pk"></span>を削除しますか?</p>
+                  <input type="button" class="btn btn-outline-danger btn-sm" id="close_btn" value="キャンセル">
+                  <a href="" class="btn btn-outline-success btn-sm" id= "del_url">OK</a>
+              </div>
+          </div>
+      </div>
+  <div class="row">
+    <div class="col-xl-6"> 
+      <h2>マッチ平均キル数グラフ</h2>
+      <img src="data:image/png;base64, {{ kill_graph | safe }} " alt="" />
+    </div>
+    <div class="col-xl-6">
+      <h2>マッチ平均デス数グラフ</h2>
+      <img src="data:image/png;base64, {{ death_graph | safe }} " alt="" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-6">
+      <h2>マッチ平均スコア数グラフ</h2>
+      <img src="data:image/png;base64, {{ score_graph | safe }} " alt="" />
+    </div>
+    <div class="col-xl-6">
+      <h2>マッチ平均k/dグラフ</h2>
+      <img src="data:image/png;base64, {{ kd_graph | safe }} " alt="" />
+    </div>
+  </div>
+</div>
+
+<script src="{% static '/js/new.js' %}"></script>
+
+{% endblock %} 
+
+{% block footer %} 
+  <hr>
+  <p>© 2021 Ryuki Itatani  All Rights Reserved.</p>
+{% endblock %}

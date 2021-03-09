@@ -1,0 +1,22 @@
+.modal{
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+overflow: none;
+background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+background-color:white;
+width: 500px;
+margin: 20% auto;
+}
+footer > p{
+    width:100%;
+    text-align: center;
+}
+

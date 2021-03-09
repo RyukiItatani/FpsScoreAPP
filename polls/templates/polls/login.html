@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block head %}
+<link href="{% static '/css/login.css' %}" rel="stylesheet">
+{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+  {% if form.errors %}
+  <p>ユーザーID, パスワードが一致しません．</p>
+  {% endif %}
+  <h1>ログインフォーム</h1>
+  <form method="POST" action="{% url 'polls:login' %}">
+    {% csrf_token %}
+    <label>ユーザーID</label>
+    {{ form.username }} {{ form.username.errors }}
+    <label>パスワード</label>
+    {{ form.password }} {{ form.password.errors }}
+    <button type="submit" class="btn btn-primary">ログイン</button>
+  </form>
+  <a href="{% url 'polls:create_account' %}">アカウントを作成する</a>
+</div>
+{% endblock %}
