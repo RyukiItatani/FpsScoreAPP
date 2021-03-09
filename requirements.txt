@@ -1,5 +1,5 @@
 asgiref==3.3.1
-astroid==2.5
+astroid==2.5.1
 certifi==2020.12.5
 colorama==0.4.4
 cycler==0.10.0
