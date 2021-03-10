@@ -117,8 +117,6 @@ def graph_main(user):
 #以下はグラフ作成の関数群
 #キル、デス、スコア、kd、日付の一週間の集計したリストを作成する
 def create_list(user):
-    conn = sqlite3.connect('db.sqlite3') #db.sqlite3に接続
-    c = conn.cursor()
     week_list = []
     kill_list = []
     death_list = []
@@ -137,15 +135,13 @@ def create_list(user):
 
     #今日から一週間の日付のデータをそれぞれ取得しキル、デス、スコアのリストそれぞれにデータを保存する
     for i in range(7):
-        c.execute("SELECT * FROM polls_record WHERE DateTime like '%{dt_now}%' AND user = '{user}' ".format(dt_now = week_list[i] ,user = str(user)))
-        docs = c.fetchall()
-        for doc in docs: # 0:id 1:user 2:kill 3:death 4:score 5: datetime
-            kill_list[i].append(doc[2])
-            death_list[i].append(doc[3])
-            score_list[i].append(doc[4])
+        data = Record.objects.filter(DateTime__startswith=str(week_list[i]),user=str(user))
+        for data in data: # 0:id 1:user 2:kill 3:death 4:score 5: datetime
+            kill_list[i].append(data.kill)
+            death_list[i].append(data.death)
+            score_list[i].append(data.score)
 
-    c.close()
-    conn.close()
+    
 
     #キル、デス、スコアのリストから日付ごとの値の平均をとり保存する
     def avg_list(list):
