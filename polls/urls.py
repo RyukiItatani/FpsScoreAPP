@@ -12,3 +12,4 @@ urlpatterns = [
     path('del/<int:td_id>',views.td_del,name='td_del')
 
 ]
+handler500 = views.my_customized_server_error
