@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 import base64
 import datetime
 import MySQLdb
+import HttpResponseServerError
+from django.views.decorators.csrf import requires_csrf_token
 
 #ログインview
 class Create_account(CreateView):
