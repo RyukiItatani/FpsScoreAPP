@@ -134,7 +134,7 @@ def create_list(user):
 
     #今日から一週間の日付のデータをそれぞれ取得しキル、デス、スコアのリストそれぞれにデータを保存する
     for i in range(7):
-        data = Record.objects.filter(DateTime__startswith=str(week_list[i],user=str(user))
+        data = Record.objects.filter(DateTime__startswith=str(week_list[i],user=str(user)))
         for data in data: # 0:id 1:user 2:kill 3:death 4:score 5: datetime
             kill_list[i].append(data.kill)
             death_list[i].append(data.death)
