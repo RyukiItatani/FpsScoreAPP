@@ -9,7 +9,8 @@ urlpatterns = [
     path('logout',views.account_logout,name='logout'),
     path('create',views.create_account,name='create_account'),
     path('user',views.username,name='name'),
-    path('del/<int:td_id>',views.td_del,name='td_del')
+    path('del/<int:td_id>',views.td_del,name='td_del'),
+    path('test_login',views.test_login, name='test_login')
 
 ]
 

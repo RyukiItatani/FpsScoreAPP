@@ -17,6 +17,7 @@
     {{ form.password }} {{ form.password.errors }}
     <button type="submit" class="btn btn-primary">ログイン</button>
   </form>
+  <a href="{% url 'polls:test_login' %}" class="btn btn-success">ゲストログイン</a>
   <a href="{% url 'polls:create_account' %}">アカウントを作成する</a>
 </div>
 {% endblock %}

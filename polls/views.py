@@ -63,8 +63,12 @@ class Username(View):
         user = self.request.user
         return HttpResponse({user})
 username = Username.as_view()
-#HTML呼び出し関数
-
+#テストユーザでログイン
+def test_login(request):
+    test_user=authenticate(username='testuser1',password='test!"#$')
+    login(request,test_user)
+    return redirect('/polls/new')
+#メイン画面の関数
 @login_required
 def new(request):
     user = request.user
