@@ -75,7 +75,7 @@ def new(request):
                                         kill = request.POST.get('kill'),
                                         death = request.POST.get('death'),
                                         score = request.POST.get('score'),
-                                        DateTime = timezone.datetime.now())
+                                        DateTime = timezone.datetime.now()) + datetime.timedelta(hours=9)
      
     kill_graph, death_graph, score_graph, kd_graph = graph_main(user)
     my_dict = {
@@ -134,7 +134,7 @@ def create_list(user):
 
     #今日から一週間の日付のデータをそれぞれ取得しキル、デス、スコアのリストそれぞれにデータを保存する
     for i in range(7):
-        data = Record.objects.filter(DateTime__startswith=str(week_list[i]),user=str(user))
+        data = Record.objects.filter(DateTime__startswith=str(week_list[i],user=str(user))
         for data in data: # 0:id 1:user 2:kill 3:death 4:score 5: datetime
             kill_list[i].append(data.kill)
             death_list[i].append(data.death)
