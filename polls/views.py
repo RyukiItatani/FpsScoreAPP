@@ -15,7 +15,6 @@ mpl.use('Agg')
 import matplotlib.pyplot as plt
 import base64
 import datetime
-import MySQLdb
 from django.http import  HttpResponseServerError
 from django.views.decorators.csrf import requires_csrf_token
 
@@ -187,7 +186,7 @@ def get_image():
      graph = graph.decode('utf-8')
      buffer.close()
      return graph
-
+#エラーの詳細を表示する関数
 @requires_csrf_token
 def my_customized_server_error(request, template_name='500.html'):
     import sys
