@@ -75,7 +75,7 @@ def new(request):
                                         kill = request.POST.get('kill'),
                                         death = request.POST.get('death'),
                                         score = request.POST.get('score'),
-                                        DateTime = timezone.datetime.now() + timezone.timedelta(hours=9)
+                                        DateTime = timezone.datetime.now() + timezone.timedelta(hours=9))
      
     kill_graph, death_graph, score_graph, kd_graph = graph_main(user)
     my_dict = {
