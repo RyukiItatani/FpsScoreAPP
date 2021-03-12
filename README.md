@@ -1,5 +1,5 @@
 # FpsScoreAPP
-URL:https://fpslist.herokuapp.com/polls
+URL:https://fpslist.herokuapp.com/polls　　
 テストユーザーとしてログインする際は、ゲストログインボタンを押してください。
 ## アプリケーション概要
 FPSゲームの戦績を管理するアプリケーションである。  
