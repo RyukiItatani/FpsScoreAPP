@@ -190,7 +190,7 @@ def get_image():
      graph = graph.decode('utf-8')
      buffer.close()
      return graph
-#エラーの詳細を表示する関数
+#本番環境でもエラーの詳細を表示する関数
 @requires_csrf_token
 def my_customized_server_error(request, template_name='500.html'):
     import sys
