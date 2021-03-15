@@ -15,15 +15,15 @@ FPSゲームの戦績を管理するアプリケーションである。
 - グラフ作成機能  
 ## アプリケーションの詳細説明
 - 言語はPython、javascript、css、htmlを使用  
-- フレームワークは、djangoを使用  
-- デザインは、bootstrapを使用  
-- グラフの作成には、matplotlibを使用  
-- 現在の日付の取得には、timezone、datetimeを使用  
+- フレームワークはdjangoを使用  
+- デザインはbootstrapを使用  
+- グラフの作成にはmatplotlibを使用  
+- 現在の日付の取得にはtimezone、datetimeを使用  
 - データを削除する際に、モーダルウィンドウを使用  
 - モーダルウィンドウの動作プログラムはnew.jsに記載
 - models.py内のRecordクラスでデータベースのpolls_recordというテーブルを作成  
-- データベースには、sqlite3を使用 
-- デプロイには、herokuを使用   　　
+- データベースにはsqlite3を使用 
+- デプロイにはherokuを使用   　　
 - views.py内のmy_customized_server_error関数はdegug=False状態でもエラーの詳細を表示する関数であり、アプリケーションの機能に関係はない
 
 
