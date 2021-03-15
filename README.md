@@ -14,14 +14,14 @@ FPSゲームの戦績を管理するアプリケーションである。
 - 表作成機能
 - グラフ作成機能  
 ## アプリケーションの詳細説明
-言語はPython、javascript、css、htmlを使用している。  
-フレームワークは、djangoを使用している。  
-デザインは、bootstrapを使用している。  
-グラフの作成には、matplotlibを使用している。  
-現在の日付の取得には、timezone、datetimeを使用している。  
-データを削除する際に、モーダルウィンドウを使用している。  
-models.py内のrecordというクラスでデータベースのpolls_recordというテーブルを作成している。  
-データベースには、sqlite3を使用している。  
-デプロイには、herokuを使用している。   　　
+- 言語はPython、javascript、css、htmlを使用  
+- フレームワークは、djangoを使用  
+- デザインは、bootstrapを使用  
+- グラフの作成には、matplotlibを使用  
+- 現在の日付の取得には、timezone、datetimeを使用  
+- データを削除する際に、モーダルウィンドウを使用  
+- models.py内のRecordクラスでデータベースのpolls_recordというテーブルを作成  
+- データベースには、sqlite3を使用 
+- デプロイには、herokuを使用   　　
 
 
