@@ -23,5 +23,6 @@ FPSゲームの戦績を管理するアプリケーションである。
 - models.py内のRecordクラスでデータベースのpolls_recordというテーブルを作成  
 - データベースには、sqlite3を使用 
 - デプロイには、herokuを使用   　　
+- views.py内のmy_customized_server_error関数はdegug=False状態でもエラーの詳細を表示する関数であり、アプリケーションの機能に関係はない
 
 
